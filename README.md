@@ -19,9 +19,9 @@ Program for Figure Effects of intermediate deadline interventions: interim_deadl
 Program for Figure Supplementary Figure 2: perfectionismswitchNotWorkingtoCompleting.m; Final figure: perfectionismswitchNotWorkingtoCompleting.pdf
 
 # Files in the folder Supplement:
-DelayedRewardGammaPatternProcrastination.m simulation program supporting the necessary parameter space where we can find “a delay in the beginning, and then ramping up. ” The results saved in DelayedRewardGammaPatternProcrastination.mat
+DelayedRewardGammaPatternProcrastination.m simulation program supporting the necessary parameter space where we can find “a delay before ramping up. ” The results saved in DelayedRewardGammaPatternProcrastination.mat
 
-DelayedRewardConcaveCost.m simulation program supporting the parameter space where we can find “working at the last minute”. The results saved in DelayedRewardConcaveCost.mat
+DelayedRewardConcaveCost.m simulation program supporting the parameter space where we can find “working last-minute”. The results are saved in DelayedRewardConcaveCost.mat
 
 necessaryconditionNotWorking.m simulation program supporting the necessary parameter space where we can find “not working at all”. The results saved in necessaryconditionNotWorking.mat 
 
@@ -39,19 +39,29 @@ perfectionismFinalCompletion.m simulation program supporting the following findi
 
 TMonteCarlo.m simulation program supporting the following finding: Given a longer total time, agents switch from not working at all to working all day and finish more work in the end (we only discuss the case of a convex cost function). The change in the total cost is bidirectional. The results are saved in TMonteCarlo.mat
 
-The following programs are simulations for hyperbolic discounting:  
+The following programs are simulations for hyperbolic discounting: 
+
 •	Hyperbolic_GammaPatternProcr.m simulation program supporting the necessary parameter space where we can find “a delay in the beginning, and then ramping up. ” It uses the function program HyperbolicDiscountingFun.m and Qfun.m. The results are saved in Hyperbolic_GammaPatternProcr.mat.
+
 •	Hyperbolic_ConcaveCost.m simulation program supporting the parameter space where we can find “working at the last minute”. The results are saved in Hyperbolic_ConcaveCost.mat
+
 •	Hyperbolic_necessaryconditionNotWorking.m simulation program supporting the necessary parameter space where we can find “not working at all”. The results are saved in Hyperbolic_necessaryconditionNotWorking_Jsmaller.mat and Hyperbolic_necessaryconditionNotWorking_Jlarger.mat
+
 •	Hyperbolic_alphaMonteCarlo.m simulation program supporting the finding: under a lower maximum reward, agents procrastinate for longer, finish less work in the end. The results are saved in Hyperbolic_alphaMonteCarlo.mat. 
+
 •	Hyperbolic_CmaxMonteCarlo.m simulation program for maximum cost. The results are saved in Hyperbolic_CmaxMonteCarlo_Jzero.mat and Hyperbolic_CmaxMonteCarlo_Jnonzero.mat.
+
 •	Hyperbolic_JMonteCarlo.m simulation program for the utility of alternative activity. The results are saved in Hyperbolic_JMonteCarlo.mat.
+
 •	Hyperbolic_k_DRMonteCarlo.m simulation program for hyperbolic discount rate. The results are saved in Hyperbolic_k_DRMonteCarlo.mat.
+
 •	Hyperbolic_perfectionismFinalCompletion.m simulation program for findings of perfectionism. The results are saved in hyperbolic_perfectionism_betalargerlambda.mat and hyperbolic_perfectionism_betasmallerlambda.mat.
+
 •	Hyperbolic_TMonteCarlo.m simulation program for findings of number of total given days. The results are saved in Hyperbolic_TMonteCarlo.mat. 
 
 The following programs are intervention simulations for hyperbolic discounting: 
 •	immediateRewardInterventions_hyperbolicdiscount.m for immediate reward interventions. The results are saved in immediateRewardInterventions_hyperbolicdiscount.mat. 
+
 •	InterimDeadlineInterventions_hyperbolicdiscount.m for interim deadline interventions. The results are saved in InterimDeadlineInterventions_hyperbolicdiscount.mat. 
 
 

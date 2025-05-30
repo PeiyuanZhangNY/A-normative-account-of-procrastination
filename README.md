@@ -60,6 +60,7 @@ The following programs are simulations for hyperbolic discounting:
 •	Hyperbolic_TMonteCarlo.m simulation program for findings of number of total given days. The results are saved in Hyperbolic_TMonteCarlo.mat. 
 
 The following programs are intervention simulations for hyperbolic discounting: 
+
 •	immediateRewardInterventions_hyperbolicdiscount.m for immediate reward interventions. The results are saved in immediateRewardInterventions_hyperbolicdiscount.mat. 
 
 •	InterimDeadlineInterventions_hyperbolicdiscount.m for interim deadline interventions. The results are saved in InterimDeadlineInterventions_hyperbolicdiscount.mat. 

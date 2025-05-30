@@ -1,5 +1,5 @@
 # A-normative-account-of-procrastination
-# Files in the folder Preprint figure:
+# Files in the folder preprint figure:
 Program for Figure Model and functions: rewardcostfunction.m; Final figure: combined_modelfigure_updated.pdf
 Program for Figure Temporal patterns of work progress and its associated parameter space: pattern3D.m; Final figure: pattern3Drevised.pdf
 Program for Figure Effects of maximum task reward, task aversion, and utility of alternative activity: alphatimecoursecurve_daysofpro_utility.m; Cmaxtimecoursecurve_daysofpro_utility.m; Jtimecoursecurve_daysofpro_utility.m; Final figure: combined_alpha_Cmax_J_allutility.pdf
@@ -18,7 +18,7 @@ Program for Figure Effects of intermediate deadline interventions: interim_deadl
 # Files in the folder subfigures: 
 Program for Figure Supplementary Figure 2: perfectionismswitchNotWorkingtoCompleting.m; Final figure: perfectionismswitchNotWorkingtoCompleting.pdf
 
-# Files in the folder Supplement:
+# Files in the folder supplement:
 DelayedRewardGammaPatternProcrastination.m simulation program supporting the necessary parameter space where we can find “a delay before ramping up. ” The results saved in DelayedRewardGammaPatternProcrastination.mat
 
 DelayedRewardConcaveCost.m simulation program supporting the parameter space where we can find “working last-minute”. The results are saved in DelayedRewardConcaveCost.mat

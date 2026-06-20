@@ -13,7 +13,7 @@ Program for Figure Effects of the shape of the cost function: lambdatimecoursecu
 
 Program for Figure Diverse relationship between perfectionism and procrastination: Betatimecoursecurve_daysofpro_utility.m; Final figure: Betatimecourse_allgamma_allutility.pdf
 
-Program for Figure Effects of total given time: Ttimecoursecurve_daysofpro_utility.m; Final figure: T_allutility_plot.pdf; As an update, I used Copy_of_Ttimecoursecurve_daysofpro_utility.m Final figure: T_allutility_plot_revisionpanelA.pdf and T_allutility_plot_revisionpanelB.pdf
+Program for Figure Effects of total given time: Ttimecoursecurve_daysofpro_utility.m; Final figure: T_allutility_plot.pdf; As an update, I used Copy_of_Ttimecoursecurve_daysofpro_utility.m Final figure: T_allutility_plot_revision.pdf
 
 Draft for Figure Illustrations of interventions (Please request access to it. Correspondence to Pei Yuan Zhang, Email: pz580@nyu.edu): https://docs.google.com/presentation/d/1nN4_nmuHwHJH2gKKn416oGMjkEy8Er8j6NHz0JLBAm8/edit#slide=id.g275b3ee0b89_0_0
 

@@ -1,18 +1,28 @@
 # A-normative-account-of-procrastination
 # Files in the folder preprint figure:
 Program for Figure Model and functions: rewardcostfunction.m; Final figure: combined_modelfigure_updated.pdf
+
 Program for Figure Temporal patterns of work progress and its associated parameter space: pattern3D.m; Final figure: pattern3Drevised.pdf
-Program for Figure Effects of maximum task reward, task aversion, and utility of alternative activity: alphatimecoursecurve_daysofpro_utility.m; Cmaxtimecoursecurve_daysofpro_utility.m; Jtimecoursecurve_daysofpro_utility.m; Final figure: combined_alpha_Cmax_J_allutility.pdf
+
+Program for Figure Effects of maximum task reward, task aversion, and utility of alternative activity: alphatimecoursecurve_daysofpro_utility.m; Cmaxtimecoursecurve_daysofpro_utility.m; 
+Jtimecoursecurve_daysofpro_utility.m; Final figure: combined_alpha_Cmax_J_allutility.pdf
+
 Program for Figure Effects of discount rates: gammatimecoursecurve_daysofpro_utility.m; Final figure: gamma_allutility_plot.pdf
+
 Program for Figure Effects of the shape of the cost function: lambdatimecoursecurve_daysofpro_utility.m; Final figure: lambda_allutility_plot.pdf
+
 Program for Figure Diverse relationship between perfectionism and procrastination: Betatimecoursecurve_daysofpro_utility.m; Final figure: Betatimecourse_allgamma_allutility.pdf
-Program for Figure Effects of total given time: Ttimecoursecurve_daysofpro_utility.m; Final figure: T_allutility_plot.pdf
+
+Program for Figure Effects of total given time: Ttimecoursecurve_daysofpro_utility.m; Final figure: T_allutility_plot.pdf; As an update, I used Copy_of_Ttimecoursecurve_daysofpro_utility.m Final figure: T_allutility_plot_revisionpanelA.pdf and T_allutility_plot_revisionpanelB.pdf
+
 Draft for Figure Illustrations of interventions (Please request access to it. Correspondence to Pei Yuan Zhang, Email: pz580@nyu.edu): https://docs.google.com/presentation/d/1nN4_nmuHwHJH2gKKn416oGMjkEy8Er8j6NHz0JLBAm8/edit#slide=id.g275b3ee0b89_0_0
+
 Program for Figure Effects of all immediate reward interventions: 
 PatternTimeCourse_DelayedReward_ImmediateRewardInterventions.m 
 combinedPatternTimeCourseRewardMilestoneEachUnitProgress.m
 daysofpro_DelayedReward_ImmediateRewardInterventions.m; 
 Final figure: immediate_reward_interventions_withdiagram_4.pdf
+
 Program for Figure Effects of intermediate deadline interventions: interim_deadline_intervention.m; Final figure: interim_deadline_interventions_withdiagram revised_2.pdf
 
 # Files in the folder subfigures: 

@@ -1,8 +1,8 @@
-function [patternLabels, patternCounts, patternNames] = classifyTimeCoursePatterns(WithoptActSeqMatrix3)
+function [patternLabels, patternCounts, patternNames, patternMatrices] = classifyTimeCoursePatterns(WithoptActSeqMatrix3)
 % classifyTimeCoursePatterns  Classify each 10-day work-amount time course
 % into one of six qualitative shape patterns.
 %
-%   [patternLabels, patternCounts, patternNames] = ...
+%   [patternLabels, patternCounts, patternNames, patternMatrices] = ...
 %       classifyTimeCoursePatterns(WithoptActSeqMatrix3)
 %
 % INPUT
@@ -10,9 +10,16 @@ function [patternLabels, patternCounts, patternNames] = classifyTimeCoursePatter
 %                          time course of work amount over T days.
 %
 % OUTPUT
-%   patternLabels : N x 1 integer label (1..6) for each row.
-%   patternCounts : 6 x 1 count of rows in each pattern.
-%   patternNames  : 1 x 6 cell array of the pattern names.
+%   patternLabels   : N x 1 integer label (1..6) for each row.
+%   patternCounts   : 6 x 1 count of rows in each pattern.
+%   patternNames    : 1 x 6 cell array of the pattern names.
+%   patternMatrices : 1 x 6 cell array. patternMatrices{k} is an
+%                     (n_k x T) matrix containing every time course
+%                     assigned to pattern k, in their original row order.
+%                     Empty patterns return a 0 x T matrix.
+%
+% Tip: to also recover which original rows went into each pattern, use
+% patternLabels, e.g. rowsRampDown = find(patternLabels == 3).
 %
 % PATTERN CODES
 %   1 = Steady          (roughly flat)
@@ -88,6 +95,13 @@ function [patternLabels, patternCounts, patternNames] = classifyTimeCoursePatter
     end
 
     patternCounts = accumarray(patternLabels, 1, [6 1]);
+
+    % --- Build one matrix of time courses per pattern -----------------------
+    % patternMatrices{k} contains every row of the input whose label is k.
+    patternMatrices = cell(1, 6);
+    for k = 1:6
+        patternMatrices{k} = WithoptActSeqMatrix3(patternLabels == k, :);
+    end
 
     % --- Report -------------------------------------------------------------
     fprintf('\nPattern classification of %d time courses (T = %d days):\n', N, T);

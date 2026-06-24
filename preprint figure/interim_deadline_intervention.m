@@ -152,6 +152,31 @@ end
 %% time course of progress
 load('interim_deadline_revised.mat')
 
+% classify time course patterns
+[labels, counts, names, patternMatrices] = classifyTimeCoursePatterns(WithoptActSeqMatrix2);
+% Pattern classification of 10000 time courses (T = 21 days):
+% Pattern           Count  Percent
+% Steady              799     8.0%
+% RampUp             1472    14.7%
+% RampDown              0     0.0%
+% UpThenDown           35     0.3%  % one ramping up pattern
+% DownThenUp            0     0.0% 
+% Fluctuating        7688    76.9%  % two or three ramp-up
+
+steadyTC      = patternMatrices{1};   % all Steady time courses 
+[temp,~,~] = OptActStateSeq_interimdeadline( deltas,10,1,0,1,4,1,1,1,2,0.001); 
+% returns steady work of 0.1 from day 1 to day 10 (T=10). 
+rampUpTC      = patternMatrices{2};   % all RampUp
+rampDownTC    = patternMatrices{3};   % all RampDown
+upThenDownTC  = patternMatrices{4};   % all UpThenDown
+% many of the UpThenDown case is chasing for the first intermediate deadline and 
+% then stops working from there (without completion); 
+% 
+downThenUpTC  = patternMatrices{5};   % all DownThenUp % artifact 
+fluctuatingTC = patternMatrices{6};   % all Fluctuating
+
+
+
 %% check if the average result hold true for each simulation
 % days of prorastination delayed>upon task completion>upon milestones>upon
 % unit of work
@@ -199,19 +224,25 @@ rowsViolating = find(~conditionMet);
 sum(Ndaysofprocras(:,1)<7)/length(Ndaysofprocras(:,1)) %0.0154
 
 sum(Ndaysofprocras(:,2)<7)/length(Ndaysofprocras(:,2)) %0.7662
-%% plots
+%% plot time course of work patterns 
 % using two contradictory color
 % example time course of progress
 figure
-subplot(1,2,1)
+
+rowsFluct = find(labels == 6);   % original indices of all fluctuating rows
+origRow   = rowsFluct(12);        % which original row is the 5th in fluctuatingTC
+% origRow: 15
+fprintf('R_max=%g, PPD=%g, beta=%g, lambda=%g, gamma=%g, C_max=%g, R_alt=%g\n', alphaAll(origRow), penalty_unit_all(origRow), betaAll(origRow), lambdaAll(origRow), gammaAll(origRow), c1All(origRow), JAll(origRow));
+
+subplot(1,4,1)
 %greencolor = [161,217,155;116,196,118;65,171,93;35,139,69;0,109,44;0,68,27]/255;
 T = TAll(1);
-plot(1:T,WithoptActSeqMatrix1(6,:),'o-','Color',[27,158,119]/255);%greencolor(3,:)
+plot(1:T,WithoptActSeqMatrix1(origRow,:),'o-','Color',[27,158,119]/255);%greencolor(3,:)
 hold on
-plot(1:T,WithoptActSeqMatrix2(6,:),'o-','Color',[217,95,2]/255);%greencolor(6,:)
+plot(1:T,WithoptActSeqMatrix2(origRow,:),'o-','Color',[217,95,2]/255);%greencolor(6,:)
 hold off
-legend('single deadline', 'interim deadline');
-legend boxoff
+%legend('control', 'interim deadline');
+%legend boxoff
 
 %legend('single deadline (control condition)','interim deadline')
 %legend boxoff
@@ -219,24 +250,77 @@ xlabel('time \itt','Interpreter','tex')
 ylabel('progress \Delta\its','Interpreter','tex')
 xlim([1,T])
 xticks([7,14,21])
-yticks(0:0.2:0.6)
-ylim([0,0.6])
+yticks(0:0.1:0.3)
+ylim([0,0.3])
 box off
 set(gca,'TickDir','out');
 %axis square
 
-subplot(1,2,2)
+rowsFluct = find(labels == 6);   % original indices of all fluctuating rows
+origRow   = rowsFluct(3);        % which original row is the 5th in fluctuatingTC
+fprintf('R_max=%g, PPD=%g, beta=%g, lambda=%g, gamma=%g, C_max=%g, R_alt=%g\n', alphaAll(origRow), penalty_unit_all(origRow), betaAll(origRow), lambdaAll(origRow), gammaAll(origRow), c1All(origRow), JAll(origRow));
+
+% origRow: 3
+subplot(1,4,2)
 T = TAll(1);
-plot(1:T,WithoptActSeqMatrix1(183,:),'o-','Color',[27,158,119]/255);
+plot(1:T,WithoptActSeqMatrix1(origRow,:),'o-','Color',[27,158,119]/255);
 hold on
-plot(1:T,WithoptActSeqMatrix2(183,:),'o-','Color',[217,95,2]/255);
+plot(1:T,WithoptActSeqMatrix2(origRow,:),'o-','Color',[217,95,2]/255);
+hold off
+
+xlabel('time \itt','Interpreter','tex')
+%ylabel('progress \Delta\its','Interpreter','tex')
+xlim([1,T])
+xticks([7,14,21])
+yticks(0:0.1:0.3)
+ylim([0,0.3])
+box off
+set(gca,'TickDir','out');
+
+rowsFluct = find(labels == 4);   % original indices of upThenDown rows
+origRow   = rowsFluct(4);        % which original row is the 5th in fluctuatingTC
+fprintf('R_max=%g, PPD=%g, beta=%g, lambda=%g, gamma=%g, C_max=%g, R_alt=%g\n', alphaAll(origRow), penalty_unit_all(origRow), betaAll(origRow), lambdaAll(origRow), gammaAll(origRow), c1All(origRow), JAll(origRow));
+% origRow: 655
+
+subplot(1,4,3)
+%greencolor = [161,217,155;116,196,118;65,171,93;35,139,69;0,109,44;0,68,27]/255;
+T = TAll(1);
+plot(1:T,WithoptActSeqMatrix1(origRow,:),'o-','Color',[27,158,119]/255);%greencolor(3,:)
+hold on
+plot(1:T,WithoptActSeqMatrix2(origRow,:),'o-','Color',[217,95,2]/255);%greencolor(6,:)
+hold off
+%legend('control', 'interim deadline');
+%legend boxoff
+
+%legend('single deadline (control condition)','interim deadline')
+%legend boxoff
+xlabel('time \itt','Interpreter','tex')
+%ylabel('progress \Delta\its','Interpreter','tex')
+xlim([1,T])
+xticks([7,14,21])
+yticks(0:0.1:0.3)
+ylim([0,0.3])
+box off
+set(gca,'TickDir','out');
+%axis square
+
+rowsFluct = find(labels == 2);   % original indices of upThenDown rows
+origRow   = rowsFluct(18);        % which original row is the 5th in fluctuatingTC
+fprintf('R_max=%g, PPD=%g, beta=%g, lambda=%g, gamma=%g, C_max=%g, R_alt=%g\n', alphaAll(origRow), penalty_unit_all(origRow), betaAll(origRow), lambdaAll(origRow), gammaAll(origRow), c1All(origRow), JAll(origRow));
+% origRow:104
+
+subplot(1,4,4)
+T = TAll(1);
+plot(1:T,WithoptActSeqMatrix1(origRow,:),'o-','Color',[27,158,119]/255);
+hold on
+plot(1:T,WithoptActSeqMatrix2(origRow,:),'o-','Color',[217,95,2]/255);
 hold off
 
 
-legend('single deadline', 'interim deadline');
+legend('control', 'intermediate deadline');
 legend boxoff
 xlabel('time \itt','Interpreter','tex')
-ylabel('progress \Delta\its','Interpreter','tex')
+%ylabel('progress \Delta\its','Interpreter','tex')
 xlim([1,T])
 xticks([7,14,21])
 yticks(0:0.1:0.3)
@@ -246,7 +330,7 @@ set(gca,'TickDir','out');
 
 x0=10;
 y0=10;
-width=600;
+width=1200;
 height=250;
 set(gcf,'position',[x0,y0,width,height])
 

@@ -23,7 +23,7 @@ combinedPatternTimeCourseRewardMilestoneEachUnitProgress.m
 daysofpro_DelayedReward_ImmediateRewardInterventions.m; 
 Final figure: immediate_reward_interventions_withdiagram_4.pdf
 
-Program for Figure Effects of intermediate deadline interventions: interim_deadline_intervention.m; Final figure: interim_deadline_interventions_withdiagram revised_2.pdf
+Program for Figure Effects of intermediate deadline interventions: interim_deadline_intervention.m; Final figure: interim_deadline_interventions_withdiagram revised_3_majorrevision.pdf
 
 # Files in the folder subfigures: 
 Program for Figure Supplementary Figure 2: perfectionismswitchNotWorkingtoCompleting.m; Final figure: perfectionismswitchNotWorkingtoCompleting.pdf

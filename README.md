@@ -77,7 +77,7 @@ The following programs are intervention simulations for hyperbolic discounting:
 
 
 # Files in the folder perfectionism data and analysis:
-perfectionism_rawdata.xlsx : The raw data of participants’ response to Self-oriented subscale of perfectionism from Hewitt, P. L., & Flett, G. L. (1990) and response to our designed questionnaire to test a power-law relationship between reward and final performance. 
+perfectionism_rawdata_clean.xlsx : The raw data of participants’ response to Self-oriented subscale of perfectionism from Hewitt, P. L., & Flett, G. L. (1990) and response to our designed questionnaire to test a power-law relationship between reward and final performance. 
 
 perfectionism_model.m Model fitting program for a power-law relationship between reward and final performance.
 perfectionism_DataAnalysis.ipynb data analysis program for the section: Empirical evidence supporting our model’s potential to represent perfectionism. 
